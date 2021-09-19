@@ -1,55 +1,78 @@
-package Buoi4_bai1;
+package pk;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
-
+public class Main{
+		
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in); 
-		int x;
-		
-		ArrayList<Qua> lsQua = new ArrayList<Qua>(); 
-		lsQua.add(new Tao("Tao1", 15, 50, 3));
-		lsQua.add(new Tao("Tao2", 10, 100, 2));
-		lsQua.add(new Cam("Cam1", 25, 40, 2.5f));
-		lsQua.add(new Cam("Cam2", 40, 30, 3.5f));
-		lsQua.add(new Chuoi("Chuoi1", 100, 30, 39.1f));
-		lsQua.add(new Chuoi("Chuoi2", 80, 60, 39.2f));
-		
-		System.out.println("1. In thong tin cac loai hoa qua");
-		System.out.println("2. Nhap so tien hien co");
-		x = sc.nextInt();
-		if(x==1) {
-			for(int i=0; i<lsQua.size(); i++) {
-				System.out.println("Ten qua: " + lsQua.get(i).getTen());
-				System.out.println("Gia: " + lsQua.get(i).getGia());
-				System.out.println("So luong: " + lsQua.get(i).getSoLuong());
-				if(lsQua.get(i) instanceof Tao) {
-					Tao tmp = (Tao) lsQua.get(i);
-					System.out.println("Luong duong:" + tmp.getLuongDuong());
-				}
-				else if(lsQua.get(i) instanceof Cam) {
-					Cam tmp = (Cam) lsQua.get(i);
-					System.out.println("Can nang: " + tmp.getCanNang());
-				}
-				else {
-					Chuoi tmp = (Chuoi) lsQua.get(i);
-					System.out.println("Khoi luong dong vi: " + tmp.getKLDV());
-				}
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1.Area");
+		System.out.println("2.Perimeter");
+		System.out.println("Nhap: '1' hoac '2'");
+		int y;
+		y = sc.nextInt();
+		if(y==1) {
+			System.out.println("1.Square");
+			System.out.println("2.Parallelogram");
+			System.out.println("3.Rectangular");
+			System.out.println("4.Triagle");
+			System.out.println("5.Rhombus");
+			System.out.println("Nhap: '1', '2', '3', '4' hoac '5'");
+			int z;
+			z = sc.nextInt();
+			if(z==1) {
+				Square square = new Square(4);
+				System.out.println(square.ChuVi());
+			}
+			else if(z==2) {
+				Parallelogram parallelogram = new Parallelogram(4);
+				System.out.println(parallelogram.ChuVi());
+			}
+			else if(z==3) {
+				Rectangular rectangular = new Rectangular(4);
+				System.out.println(rectangular.ChuVi());
+			}
+			else if(z==4) {
+				TamGiac triagle = new TamGiac(3);
+				System.out.println(triagle.ChuVi());
+			}
+			else {
+				Rhombus rhombus = new Rhombus(4);
+				System.out.println(rhombus.ChuVi());
 			}
 		}
 		else {
-			float money;
-			money = sc.nextFloat();
-			for(int i=0; i<lsQua.size(); i++) {
-				System.out.print("Mua duoc toi da: ");
-				int tmp = (int)Math.min(money/(lsQua.get(i).getGia()), lsQua.get(i).getSoLuong());
-				System.out.println(tmp + " " + lsQua.get(i).getTen());
+			System.out.println("1.Square");
+			System.out.println("2.Parallelogram");
+			System.out.println("3.Rectangular");
+			System.out.println("4.Triagle");
+			System.out.println("5.Rhombus");
+			System.out.println("Nhap: '1', '2', '3', '4' hoac '5'");
+			int z;
+			z = sc.nextInt();
+			if(z==1) {
+				Square square = new Square(4);
+				System.out.println(square.DienTich());
 			}
+			else if(z==2) {
+				Parallelogram parallelogram = new Parallelogram(4);
+				System.out.println(parallelogram.DienTich());
+			}
+			else if(z==3) {
+				Rectangular rectangular = new Rectangular(4);
+				System.out.println(rectangular.DienTich());
+			}
+			else if(z==4) {
+				TamGiac triagle = new TamGiac(3);
+				System.out.println(triagle.DienTich());
+			}
+			else {
+				Rhombus rhombus = new Rhombus(4);
+				System.out.println(rhombus.DienTich());
+			}
+	
 		}
-
 	}
-
 }
